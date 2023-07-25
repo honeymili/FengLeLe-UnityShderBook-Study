@@ -26,6 +26,7 @@ public class CustomRenderPassFeature : ScriptableRendererFeature
         //渲染管道将确保目标设置和清除以高性能的方式进行。
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
         {
+            //OnCameraSetup: 在执行渲染pass前调用此方法 它可配置渲染目标 清除状态 创建临时渲染目标纹理  当此渲染pass为空 将渲染到当前摄像机渲染目标
         }
 
         // Here you can implement the rendering logic.
@@ -41,12 +42,14 @@ public class CustomRenderPassFeature : ScriptableRendererFeature
         //不需要调用ScriptableRenderContext。提交时，渲染管道将在管道中的特定点调用它。
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
+            //Execute : 实现渲染逻辑 发出绘图指令 执行命令缓冲区
         }
 
         // Cleanup any allocated resources that were created during the execution of this render pass.
         //清除在渲染过程中创建的所有已分配资源。
         public override void OnCameraCleanup(CommandBuffer cmd)
         {
+            //OnCameraCleanup : 清除渲染过程中创建的所有 已分配资源
         }
     }
 
